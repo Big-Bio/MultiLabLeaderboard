@@ -70,7 +70,8 @@ shinyUI(
                 ),
               column(
                 width = 6,
-                plotOutput('community')
+                #plotOutput('community')
+                print('debugging this')
                 )
               )
             )

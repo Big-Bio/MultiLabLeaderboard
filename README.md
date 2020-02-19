@@ -81,6 +81,7 @@ Seventh Step: lab competitions
 
 Eighth Step: set up shinyapps
  1) follow the directions here to set up an account and link to to Rstudio https://shiny.rstudio.com/articles/shinyapps.html
+ 2) comment out the setwd() command in your server.R file
  2) deploy your app to shinyapps!
  
  Nineth Step:
