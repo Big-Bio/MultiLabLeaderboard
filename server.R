@@ -1,6 +1,6 @@
 rm(list=ls()) 
 
-setwd('/Users/robertbrown/Dropbox/SriramLab/leaderboard-googlesheets4/MultiLabLeaderboard')
+#setwd('/Users/robertbrown/Dropbox/SriramLab/leaderboard-googlesheets4/MultiLabLeaderboard_dev')
 labname <- 'SriramLab'
 
 
@@ -189,21 +189,6 @@ mean_per_personweek = function(p, type) {
   s
 }
 
-#mean_per_labcampaign = function(p, type) {
-#  p = group_by_(p, 'handle', type, 'year')
-#  p = summarize(p, n = length(doi))
-#  p = ungroup(p)
-#  p = group_by(p, handle)
-#  p = arrange_(p, 'handle', 'year', type)
-#  p = mutate(p, n_total = cumsum(n))
-#  p = ungroup(p)
-#  s=aggregate(p$n, by=list(Category=p$week), FUN=sum)
-#  s=mutate(s,mpppw=x/length(unique(p$handle)))
-#  colnames(s)=c('week','weekly_total','mean_per_personweek')
-#  mean_papers_pp=sum(s$mean_per_personweek)
-#  mean_papers_pp
-#}
-
 
 
 count_by_date = function(p, type) {
@@ -220,19 +205,7 @@ count_by_date = function(p, type) {
   s
 }
 
-count_by_date = function(p, type) {
-  p = group_by_(p, 'handle', type, 'year')
-  p = summarize(p, n = length(doi))
-  p = ungroup(p)
-  p = group_by(p, handle)
-  p = arrange_(p, 'handle', 'year', type)
-  p = mutate(p, n_total = cumsum(n))
-  p = ungroup(p)
-  s=aggregate(p$n, by=list(Category=p$week), FUN=sum)
-  s=mutate(s,mpppw=x/length(unique(p$handle)))
-  colnames(s)=c('week','weekly_total','mean_per_personweek')
-  s
-}
+
 
 
 in_campaign = function(date, which_campaign) {
@@ -267,8 +240,8 @@ read_comp_data = function(urls) {
 #sheets_auth(cache = ".secrets",email = "rpb2103@gmail.com")
 options(gargle_oauth_cache = secret_file_path)
 
-files=list.files(secret_file_path)
-token=files[which(grepl('.com',files))]
+files <- list.files(secret_file_path)
+token <- files[which(grepl('.com',files))]
 
 sheets_auth(
   email = "rpb2103@gmail.com",
@@ -276,7 +249,6 @@ sheets_auth(
   scopes = "https://www.googleapis.com/auth/spreadsheets",
   cache = secret_file_path,
   token=token
-  #token = 'dc4ca56f832c69b4980e29dde9760191_rpb2103@gmail.com'
 )
 
 
@@ -285,7 +257,7 @@ sheets_auth(
 prc_raw <- sheets_get(DB_URL)
 raw_data <- sheets_read(prc_raw,sheet = 'raw_data')
 
-df=data.frame(doi=NA,handle=raw_data$handle, date=raw_data$date,recommend=NA,comments=NA)
+df <- data.frame(doi=NA,handle=raw_data$handle, date=raw_data$date,recommend=NA,comments=NA)
 
 for (i in c(1:nrow(df))){
   temp<-strsplit(raw_data$text[i],split = ' ')
@@ -313,7 +285,7 @@ papers <- mutate(papers, doi = sapply(doi, sanitize_link4), date = convert_date(
 papers <- mutate(papers, day = yday(date), week = week(date),
                  month = month(date), year = year(date))
 
-papers$campaign=identify_campaigns(papers$date)
+papers$campaign <- identify_campaigns(papers$date)
 
 
 #this counts the total papers read by the lab each week
@@ -332,17 +304,17 @@ comp_data <- sheets_get(LC_URL)
 sheets_write(count_week_year_camp,ss=comp_data,sheet = 'Sheet1')
 
 #this reads all the competing lab metrix
-compSheetIDtable=read.table(paste(secret_file_path,'comp_sheetIDs.txt',sep=''),sep = ',',header = F)
-compSheetIDtable$V1=as.character(compSheetIDtable$V1)
-compSheetIDtable$V2=as.character(compSheetIDtable$V2)
-colnames(compSheetIDtable)=c('lab','compSheetID')
+compSheetIDtable <- read.table(paste(secret_file_path,'comp_sheetIDs.txt',sep=''),sep = ',',header = F)
+compSheetIDtable$V1 <- as.character(compSheetIDtable$V1)
+compSheetIDtable$V2 <- as.character(compSheetIDtable$V2)
+colnames(compSheetIDtable) <- c('lab','compSheetID')
 
-comp_data_all=read_comp_data(compSheetIDtable)  
-comp_data_all$total_papers=as.numeric(comp_data_all$total_papers)
-comp_data_all$Nreaders=as.numeric(comp_data_all$Nreaders)
+comp_data_all <- read_comp_data(compSheetIDtable)  
+comp_data_all$total_papers <- as.numeric(comp_data_all$total_papers)
+comp_data_all$Nreaders <- as.numeric(comp_data_all$Nreaders)
 comp_data_all$lab=as.factor(comp_data_all$lab)
-comp_data_all=mutate(comp_data_all, mean_papers_per_personweek = total_papers/Nreaders)
-comp_data_all=subset(comp_data_all, mean_papers_per_personweek > 0)
+comp_data_all <- mutate(comp_data_all, mean_papers_per_personweek = total_papers/Nreaders)
+comp_data_all <- subset(comp_data_all, mean_papers_per_personweek > 0)
 
 
 
@@ -496,11 +468,11 @@ shinyServer(function(input, output, session) {
   })
 
   output$p_n_summary = renderPlot({
-    current_papers = dplyr::filter(papers, in_campaign(date, current_campaign()))
-    df = aggregate_by_date(current_papers, 'week')
-    p = ggplot(df, aes(week, n_total, color = handle))
-    p = p + geom_line()
-    p = p + geom_point()
+    current_papers  <-  dplyr::filter(papers, in_campaign(date, current_campaign()))
+    df  <-  aggregate_by_date(current_papers, 'week')
+    p  <-  ggplot(df, aes(week, n_total, color = handle))
+    p  <-  p + geom_line()
+    p  <-  p + geom_point()
     p
   })
   
@@ -508,13 +480,13 @@ shinyServer(function(input, output, session) {
   #current_comp_data_all = dplyr::filter(comp_data_all, campaign=='Winter 2020')
   
   output$mean_per_personweek_labcomp = renderPlot({
-    current_comp_data_all = dplyr::filter(comp_data_all, campaign==current_campaign()$campaign)
-    current_comp_data_all=current_comp_data_all[,c(2,5,7)]
-    current_comp_data_all$week=as.numeric(current_comp_data_all$week)
-    current_comp_data_all$mean_papers_per_personweek=as.numeric(current_comp_data_all$mean_papers_per_personweek)
-    current_comp_data_all$lab=as.character(current_comp_data_all$lab)
-    p = ggplot(current_comp_data_all, aes(week, mean_papers_per_personweek, color=lab))
-    p = p + geom_line()
+    current_comp_data_all  <-  dplyr::filter(comp_data_all, campaign==current_campaign()$campaign)
+    current_comp_data_all <- current_comp_data_all[,c(2,5,7)]
+    current_comp_data_all$week <- as.numeric(current_comp_data_all$week)
+    current_comp_data_all$mean_papers_per_personweek <- as.numeric(current_comp_data_all$mean_papers_per_personweek)
+    current_comp_data_all$lab <- as.character(current_comp_data_all$lab)
+    p  <-  ggplot(current_comp_data_all, aes(week, mean_papers_per_personweek, color=lab))
+    p  <-  p + geom_line()
     p = p + geom_point()
     p
   })
