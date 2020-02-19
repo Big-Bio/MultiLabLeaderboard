@@ -6,6 +6,10 @@ The first version of this leaderboard was written by Harold Pimentel. He blogs a
 
 https://haroldpimentel.wordpress.com/2019/10/02/leaderboard/
 
+and here is the origional github repo he made
+
+https://github.com/pimentel/leaderboard
+
 Unfortunately the google sheerts API he used no longer works. So, here I have updated the API and added multi-lab competition capabilities. I have also removed the need to have a paid zapier account. So implementing this should be free.
 
 Now, lets get to setting it up!
