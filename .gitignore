@@ -1,0 +1,6 @@
+.httr-oauth
+secretsDONOTSHARE
+.DS_Store
+rsconnect
+.Rhistory
+*.com
