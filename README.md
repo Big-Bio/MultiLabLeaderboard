@@ -6,7 +6,7 @@ The first version of this leaderboard was written by Harold Pimentel. He blogs a
 
 https://haroldpimentel.wordpress.com/2019/10/02/leaderboard/
 
-and here is the origional github repo he made
+and here is the original github repo he made
 
 https://github.com/pimentel/leaderboard
 
