@@ -44,38 +44,6 @@ shinyUI(
               )
             )
           ),
-        tabPanel('word clouds',
-          fluidPage(
-            fluidRow(
-              column(
-                width = 6,
-                h4('recommendations'),
-                plotOutput('recommendation_cloud')
-                ),
-              column(
-                width = 6,
-                h4('comments'),
-                plotOutput('comment_cloud')
-                )
-              )
-            )
-          ),
-        tabPanel('networks',
-          fluidPage(
-            title = 'networks',
-            fluidRow(
-              column(
-                width = 6,
-                plotOutput('network')
-                ),
-              column(
-                width = 6,
-                #plotOutput('community')
-                print('debugging this')
-                )
-              )
-            )
-          ),
         tabPanel('raw data',
           {
             dataTableOutput('raw_data')
