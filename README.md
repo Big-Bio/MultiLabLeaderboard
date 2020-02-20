@@ -69,6 +69,7 @@ Fourth step: Set up the Zapier.
  2) In the top right there is a button that says "Run App" press it. Cross your fingers!
 3) If it does not run, then... well, have fun debugging 
 
+
  
 Seventh Step: lab competitions
  1) Right now you should have your labname for lab competitions. If you don't want to setup lab competitions, you can move onto deploying your app now. You can also come back to this step in the future and set up competitions, if you do that, you will just need to redeploy the app once you add competing labs.
