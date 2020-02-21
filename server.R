@@ -1,7 +1,6 @@
 rm(list=ls()) 
 
-#setwd('/Users/robertbrown/Dropbox/SriramLab/leaderboard-googlesheets4/MultiLabLeaderboard_dev')
-labname <- 'SriramLab'
+setwd('XXXXX')
 
 
 library('googlesheets4')
@@ -384,13 +383,17 @@ shinyServer(function(input, output, session) {
     user_count
   })
 
+  
+  output$PIname <- renderText(PIname)
+  
   output$p_above_pritch <- renderText({
     df <- user_count()
-    jp <- dplyr::filter(df, handle == 'sriram')
-    lab <- dplyr::filter(df, handle != 'sriram')
+    jp <- dplyr::filter(df, handle == PIname)
+    lab <- dplyr::filter(df, handle != PIname)
     paste0(round(mean(lab$n > jp$n) * 100, 2), '%')
   })
 
+  
   output$user_count_table <- renderDataTable({
     df <- arrange(user_count(), desc(n))
     df

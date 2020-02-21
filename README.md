@@ -18,9 +18,12 @@ Now, let's get to setting it up!
 
 First step: 
 1) Clone the repo to your computer
-2) In the initial_setup.R script change the working directory to be inside the repo, open the server.R file and set the working directory there as well to be inside the repo. 
-3) create a one-word, no-space, no-special characters lab name (e.g. "SriramLab"). In the initial_setup.R and server.R file, you will use this exact same lab name. Change it in both scripts to what you want. This lab name will also be used for lab competitions. It cannot be changed in the future.
-4) in the ui.R script, go to line 16, and change "Sriram" to the name of your PI
+2) In the initial_setup.R script 
+2a) for 'YOURemail' type your gmail that is associated with your google drive that you will be using
+2b) for 'labname' create a one-word, no-space, no-special characters lab name (e.g. "SriramLab") in the initial_setup.R.   This lab name will also be used for lab competitions.
+2c) for 'PIname' type the handle that your PI uses on slack (or the handle of whoever you are trying to beat as a lab)
+change the working directory to be inside the repo, open the server.R file and set the working directory there as well to be inside the repo. 
+2d)  update the working directory such that it points to inside of the file where the repo files are stored 
 
 
 Second step: 

@@ -13,7 +13,7 @@ shinyUI(
             plotOutput('p_user_count'),
             fluidRow(
               column(width = 4,
-                p('percentage of lab beating ',textOutput(PIname),': ', textOutput('p_above_pritch'))),
+                p(paste('percentage of lab beating ',PIname,': '), textOutput('p_above_pritch'))),
               column(width = 4),
               column(width = 8, selectInput('s_select_campaign', 'Which campaign:',
                   campaigns$campaign, selected = default_current_campaign$campaign))
