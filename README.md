@@ -20,6 +20,7 @@ First step:
 1) Clone the repo to your computer
 2) In the initial_setup.R script change the working directory to be inside the repo, open the server.R file and set the working directory there as well to be inside the repo. 
 3) create a one word no space no special characters lab name (e.g. "SriramLab"). In the initial_setup.R and server.R file, you will use this exact same labname. Change it in both to what you want. This labname will also be used for lab competitions. It cannot be changed in the future.
+4) in the ui.R script, go to line 16, and change "Sriram" to the name of your PI
 
 
 Second step: 
