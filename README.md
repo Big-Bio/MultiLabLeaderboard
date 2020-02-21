@@ -10,7 +10,7 @@ and here is the original github repo he made
 
 https://github.com/pimentel/leaderboard
 
-Unfortunately the google sheerts API he used no longer works. So, here I have updated the API and added multi-lab competition capabilities. I have also removed the need to have a paid zapier account. So implementing this should be free.
+Unfortunately the googlesheets API he used no longer works. So, here I have updated the API and added multi-lab competition capabilities. I have also removed the need to have a paid zapier account. So implementing this should be free.
 
 Now, let's get to setting it up!
 
@@ -51,7 +51,7 @@ Fourth step: Set up the Zapier.
 12) Leave the Drive field empty, the default will be your Google Drive
 13) For Spreadsheet, select DB-Leaderboard that was created with the "initial_setup.R"
 14) For Worksheet, select "raw_data"
-15) For "handle(optional)" look to the right side of the filed, and there is a lines with plus symbol, 
+15) For "handle(optional)" look to the right side of the field, and there is a lines with plus symbol, 
     hit that and select the "User Name" line, it should have your username in it
 16) For "Data(optional)", same idea as in 15, but selec the "Ts" field that has a big number in it
 17) For "Text (optional)", same idea as in 15, select "Raw Text"
@@ -76,8 +76,8 @@ Fourth step: Set up the Zapier.
 Seventh Step: lab competitions
  1) Right now you should have your lab name for lab competitions. If you don't want to setup lab competitions, you can move onto deploying your app now. You can also come back to this step in the future and set up competitions, if you do that, you will just need to redeploy the app once you add competing labs.
  2) Contact whoever at the lab you want to compete with is hosting the google sheets used for their instance of this reading leaderboard. Ask them to "read-only" share with you their "DB-leaderboard-metrics" google sheet. ****The must input into the share screen your email address that is associated with your google drive! So provide them with the correct email to invite you!
- 3)You will be sent a link to their sheet, from the link, follow the link. Then, identify the sheet ID from the URL. (https://stackoverflow.com/questions/36061433/how-to-do-i-locate-a-google-spreadsheet-id)
- 4) In the secretsDONOTSHARE file that was made in the repo directory, open the file called "comp_SheetIDs.txt.  On a new line (don't leave blank lines, add a one word no space no special characters labname of your choosing for the lab you will compete with, then put a comma, then put the sheet ID you found from the link they shared.  Do not use any spaces when doing this. This file will be read as a CSV file. Save the file.
+ 3) You will be sent a link to their sheet, from the link, follow the link. Then, identify the sheet ID from the URL. (https://stackoverflow.com/questions/36061433/how-to-do-i-locate-a-google-spreadsheet-id)
+ 4) In the secretsDONOTSHARE folder that was made in the repo directory, open the file called "comp_SheetIDs.txt.  On a new line (don't leave blank lines, add a one-word, no-space, no-special characters lab name of your choosing for the lab that you will compete with, then put a comma, then put the sheet ID you found from the link they shared. Do not use any spaces when doing this. This file will be read as a CSV file. Save the file.
  5) Exit Rstudio, then start it again, go to the server.R file, then push Run App again. Hopefully it should work and will add a lab in the competition graphs!
  6) you will need to re-deploy the app to shinyapps (ignore this if you have not deployed yet).
  
