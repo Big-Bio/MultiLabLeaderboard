@@ -237,14 +237,13 @@ read_comp_data = function(urls) {
 
 
 
-#sheets_auth(cache = ".secrets",email = "rpb2103@gmail.com")
 options(gargle_oauth_cache = secret_file_path)
 
 files <- list.files(secret_file_path)
 token <- files[which(grepl('.com',files))]
 
 sheets_auth(
-  email = "rpb2103@gmail.com",
+  email = YOURemail,
   path = NULL,
   scopes = "https://www.googleapis.com/auth/spreadsheets",
   cache = secret_file_path,

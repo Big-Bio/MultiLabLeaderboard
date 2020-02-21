@@ -1,7 +1,8 @@
 rm(list=ls()) 
 
-
-labname <- 'SriramLab'
+YOURemail='rpb2103@gmail.com'  #must be the email associated with hour google drive
+labname <- 'SriramLabtest'
+PIname='Sriramtest'
 setwd('/Users/robertbrown/Dropbox/SriramLab/leaderboard-googlesheets4/MultiLabLeaderboard')
 
 
@@ -13,7 +14,7 @@ library('filesstrings')
 library('googlesheets4')
 
 # This will get a token to access your google sheets !!!!! DO NOT EVER SHARE OR POST OR PUSH THE TOKEN
-sheets_auth(email = "rpb2103@gmail.com")
+sheets_auth()
 token=list.files('~/.R/gargle/gargle-oauth')
 print('DO NOT EVER SHARE THE TOKEN YOU JUST CREATED, NEVER PUT IT ON GITHUB, EVEN PRIVATE, IT SHOULD BE SET TO SAVE TO A FILE OUTSIDE  OF THE REPO')
 
@@ -50,6 +51,7 @@ labcomp_ID <- temp$spreadsheet_id
 write(paste("DB_URL='",dbURL,"'",sep=''), file = paste(secret_file_path,'url.R',sep=''),append = F)
 #write(paste("PPP_URL='",dbPPP_URL,"'",sep=''), file = paste(secret_file_path,'url.R',sep=''),append = T)
 write(paste("LC_URL='",labcomp_URL,"'",sep=''), file = paste(secret_file_path,'url.R',sep=''),append = T)
+write(paste("YOURemail='",YOURemail,"'",sep=''), file = paste(secret_file_path,'url.R',sep=''),append = T)
 
 
 
