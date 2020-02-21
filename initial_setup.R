@@ -57,6 +57,6 @@ write(paste("LC_URL='",labcomp_URL,"'",sep=''), file = paste(secret_file_path,'u
 SiramPUB <- '1jRjcvE7_tAc06lqL2WRdxUOraLMvv_rcmN_8boTGNPI'
 tempPUB <- '1j74YHD8H-bfc6ldwhguhdRcZ3lbGR44ExJa-iFkEXA8'
 
-write(paste(labname,labcomp_ID,sep=','), file = paste(secret_file_path,'comp_SheetIDs.txt',sep=''),append = F)
+write(paste(labname,labcomp_ID,sep=','), file = paste(secret_file_path,'comp_sheetIDs.txt',sep=''),append = F)
 
 
