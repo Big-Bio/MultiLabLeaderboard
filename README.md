@@ -1,7 +1,6 @@
 # MultiLabLeaderboard
 This is a paper reading tracker app for multiple labs to compare their average reading
 
-
 The first version of this leaderboard was written by Harold Pimentel. He blogs about it here!
 
 https://haroldpimentel.wordpress.com/2019/10/02/leaderboard/
