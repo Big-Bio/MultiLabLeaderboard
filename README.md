@@ -17,7 +17,7 @@ This current version was made by me, Robert Brown, with help debugging and devel
 
 Now, let's get to setting it up!
 
-
+This will work if you are using R 3.4.1, with 3.6.1 we know it does not work and does not through an error. Hopefully this will get fixed with R in the near future since this is a known "feature".
 
 First step: 
 1) Clone the repo to your computer
