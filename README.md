@@ -12,7 +12,7 @@ https://github.com/pimentel/leaderboard
 Unfortunately the googlesheets API he used no longer works. So, here I have updated the API and added multi-lab competition capabilities. I have also removed the need to have a paid zapier account. So implementing this should be free.
 
 
-This current version was made by me, Robert Brown, with help debugging and developing the README by Tommer Schwarz (@tommerschwarz).
+This current version was updated by Robert Brown (@robpbrown), with help debugging and developing the README by Tommer Schwarz (@tommerschwarz).
 
 
 Now, let's get to setting it up!
